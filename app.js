@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/auth/app');
+const productsRouter = require('./routes/products/app');
 const db = require('./config/db');
 
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/auth', authRouter);
+app.use('/api/products', productsRouter);
 
 db.connect();
 
