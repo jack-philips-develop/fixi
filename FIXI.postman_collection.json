@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "861ba435-26c3-4344-83f7-5e0b034e54a1",
+		"name": "FIXI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27197600"
+	},
+	"item": [
+		{
+			"name": "routes",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "users",
+							"item": [
+								{
+									"name": "Get All Users",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "172.17.17.249:3001/api/auth/users",
+											"host": [
+												"172",
+												"17",
+												"17",
+												"249"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"auth",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User By Id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "172.17.17.249:3001/api/auth/users/6703940f271bf39a59ac6761",
+											"host": [
+												"172",
+												"17",
+												"17",
+												"249"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"auth",
+												"users",
+												"6703940f271bf39a59ac6761"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create User",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"examp34le5\",\r\n    \"lastName\": \"examp43le3\",\r\n    \"phoneNumber\": \"+9898390753193\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "172.17.17.249:3001/api/auth/users",
+											"host": [
+												"172",
+												"17",
+												"17",
+												"249"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"auth",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update User By Id",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"example\",\r\n    \"lastName\": \"example\",\r\n    \"phoneNumber\": \"+989390753192\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "172.17.17.249:3001/api/auth/users/67039cdcfa2b02bebf256710",
+											"host": [
+												"172",
+												"17",
+												"17",
+												"249"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"auth",
+												"users",
+												"67039cdcfa2b02bebf256710"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User By Id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "172.17.17.249:3001/api/auth/users/6703940f271bf39a59ac6761",
+											"host": [
+												"172",
+												"17",
+												"17",
+												"249"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"auth",
+												"users",
+												"6703940f271bf39a59ac6761"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "Get All Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "172.17.17.249:3001/api/products",
+									"host": [
+										"172",
+										"17",
+										"17",
+										"249"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "172.17.17.249:3001/api/products",
+									"host": [
+										"172",
+										"17",
+										"17",
+										"249"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"pet green food\",\r\n    \"description\": \"this is my sample description\",\r\n    \"images\": \"url of text\",\r\n    \"category\": 2,\r\n    \"brand\": \"ahmad aghaii\",\r\n    \"rating\": 2.6,\r\n    \"reviews\": 56,\r\n    \"tags\": [\r\n        \"nigga\",\r\n        \"morrehm\"\r\n    ],\r\n    \"price\": 59559,\r\n    \"discount\": 23,\r\n    \"stock\": 20,\r\n    \"isAvailable\": true,\r\n    \"seoTitle\": \"this is seo title\",\r\n    \"seoDescription\": \"this is seo description\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "172.17.17.249:3001/api/products",
+									"host": [
+										"172",
+										"17",
+										"17",
+										"249"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Product By Id",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"pet green fowwwwwwwwwwwwod\",\r\n    \"description\": \"this is my sample description\",\r\n    \"images\": \"url of text\",\r\n    \"category\": 2,\r\n    \"brand\": \"ahmad aghaii\",\r\n    \"rating\": 2.6,\r\n    \"reviews\": 56,\r\n    \"tags\": [\r\n        \"nigga\",\r\n        \"morrehm\"\r\n    ],\r\n    \"price\": 59559,\r\n    \"discount\": 23,\r\n    \"stock\": 20,\r\n    \"isAvailable\": true,\r\n    \"seoTitle\": \"this is seo title\",\r\n    \"seoDescription\": \"this is seo description\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "172.17.17.249:3001/api/products/6706483e172e46ab50e00fe6",
+									"host": [
+										"172",
+										"17",
+										"17",
+										"249"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"products",
+										"6706483e172e46ab50e00fe6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product By Id",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
