@@ -1,12 +1,18 @@
 const getNextSequenceValue = require('../utilities/database/counterFunction/getNextSequenceValue');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const jwtConfig = require('../config/jwt')
 
 const createUser = async (req, res) => {
   const id = await getNextSequenceValue('userid', 23984);
   try {
     const { firstName, lastName, phoneNumber } = req.body;
     const user = new User({ firstName, lastName, phoneNumber, _id: id });
+    const token = jwt.sign({ id }, jwtConfig.jwtToken);
+
     await user.save();
+
+    res.set('Authorization', `Bearer ${token}`);
     res.status(201).json(user);
   } catch (err) {
     res.status(400).json({ message: err.message });

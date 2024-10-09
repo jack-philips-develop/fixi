@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../../../controllers/userController');
+const jwtMiddleware = require('../../../utilities/token/jwtMiddleware')
 
 router.get('/', userController.getUsers);             //Get All Users
 router.get('/:id', userController.getUserById);       //Get User By Id

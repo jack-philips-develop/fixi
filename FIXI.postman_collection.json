@@ -69,7 +69,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"firstName\": \"examp34le5\",\r\n    \"lastName\": \"examp43le3\",\r\n    \"phoneNumber\": \"+9898390753193\"\r\n}",
+											"raw": "{\r\n    \"firstName\": \"examxp3d4lfre5\",\r\n    \"lastName\": \"examp4xd3lfre3\",\r\n    \"phoneNumber\": \"+989922203951\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -268,8 +268,23 @@
 						{
 							"name": "Delete Product By Id",
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "172.17.17.249:3001/api/products/6706483e172e46ab50e00fe6",
+									"host": [
+										"172",
+										"17",
+										"17",
+										"249"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"products",
+										"6706483e172e46ab50e00fe6"
+									]
+								}
 							},
 							"response": []
 						}
