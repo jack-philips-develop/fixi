@@ -1,9 +1,11 @@
+const getNextSequenceValue = require('../utilities/database/counterFunction/getNextSequenceValue');
 const User = require('../models/user');
 
 const createUser = async (req, res) => {
+  const id = await getNextSequenceValue('userid', 23984);
   try {
     const { firstName, lastName, phoneNumber } = req.body;
-    const user = new User({ firstName, lastName, phoneNumber });
+    const user = new User({ firstName, lastName, phoneNumber, _id: id });
     await user.save();
     res.status(201).json(user);
   } catch (err) {

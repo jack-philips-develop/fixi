@@ -1,13 +1,15 @@
 const Product = require('../models/product');
+const getNextSequenceValue = require('../utilities/database/counterFunction/getNextSequenceValue');
 
 const createProduct = async (req, res) => {
+    const id = await getNextSequenceValue('productId', 45692);
     try {
         const {
             name, description, images, category, brand, rating, reviews, tags, price, discount, stock, isAvailable, seoTitle, seoDescription,
         } = req.body;
 
         const product = new Product({
-            name, description, images, category, brand, rating, reviews, tags, price, discount, stock, isAvailable, seoTitle, seoDescription,
+            _id: id, name, description, images, category, brand, rating, reviews, tags, price, discount, stock, isAvailable, seoTitle, seoDescription,
         });
 
         await product.save();
