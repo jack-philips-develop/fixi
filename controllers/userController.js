@@ -6,9 +6,9 @@ const jwtConfig = require('../config/jwt')
 const createUser = async (req, res) => {
   const id = await getNextSequenceValue('userid', 23984);
   try {
-    const { firstName, lastName, phoneNumber } = req.body;
-    const user = new User({ firstName, lastName, phoneNumber, _id: id });
+    const { firstName, lastName, phoneNumber, password } = req.body;
     const token = jwt.sign({ id }, jwtConfig.jwtToken);
+    const user = new User({ firstName, lastName, phoneNumber, _id: id, password });
 
     await user.save();
 
