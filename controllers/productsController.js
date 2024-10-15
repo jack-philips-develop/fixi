@@ -1,5 +1,6 @@
 const Product = require('../models/product');
 const getNextSequenceValue = require('../utilities/database/counter/getNextSequenceValue');
+const messageClass = require('../utilities/messageClass/messageClass');
 
 const createProduct = async (req, res) => {
     const id = await getNextSequenceValue('productId', 45692);
@@ -13,9 +14,9 @@ const createProduct = async (req, res) => {
         });
 
         await product.save();
-        res.status(201).json(product);
+        res.status(201).json(messageClass(false, product, 'product successfuly created'));
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(400).json(messageClass(true, null, err.message));
     }
 };
 
@@ -23,9 +24,9 @@ const createProduct = async (req, res) => {
 const getProducts = async (req, res) => {
     try {
         const products = await Product.find();
-        res.json(products);
+        res.json(messageClass(false, products, 'Products report successfuly created'));
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json(messageClass(true, null, err.message));
     }
 };
 
@@ -34,11 +35,11 @@ const getProductById = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
         if (!product) {
-            return res.status(404).json({ message: 'Product not found' });
+            return res.status(404).json(messageClass(true, null, 'Product not found'));
         }
-        res.json(product);
+        res.json(messageClass(false, product, 'Product report created successfuly'));
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json(messageClass(true, null, err.message));
     }
 };
 
@@ -58,12 +59,12 @@ const updateProduct = async (req, res) => {
         );
 
         if (!product) {
-            return res.status(404).json({ message: 'Product not found' });
+            return res.status(404).json(messageClass(true, null, 'Product not found'));
         }
 
-        res.json(product);
+        res.json(messageClass(false, product, 'product updated successfuly'));
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json(messageClass(true, null, err.message));
     }
 };
 
@@ -72,11 +73,11 @@ const deleteProduct = async (req, res) => {
     try {
         const product = await Product.findByIdAndDelete(req.params.id);
         if (!product) {
-            return res.status(404).json({ message: 'Product not found' });
+            return res.status(404).json(messageClass(true, null, 'Product not found'));
         }
-        res.json({ message: 'Product deleted' });
+        res.json(messageClass(false, null, 'Product deleted'));
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json(messageClass(true, null, err.message));
     }
 };
 

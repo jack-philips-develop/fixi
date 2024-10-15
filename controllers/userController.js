@@ -1,7 +1,8 @@
 const getNextSequenceValue = require('../utilities/database/counter/getNextSequenceValue');
+const messageClass = require('../utilities/messageClass/messageClass');
+const jwtConfig = require('../config/jwt');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-const jwtConfig = require('../config/jwt')
 
 const createUser = async (req, res) => {
   const id = await getNextSequenceValue('userid', 23984);
@@ -11,18 +12,18 @@ const createUser = async (req, res) => {
 
     await user.save();
 
-    res.status(201).json(user);
+    res.status(201).json(messageClass(false, user, 'User successfuly created'));
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json(messageClass(true, null, err.message));
   }
 };
 
 const getUsers = async (req, res) => {
   try {
     const users = await User.find();
-    res.json(users);
+    res.status(200).json(messageClass(false, users, 'report successfuly created'));
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json(messageClass(true, null, err.message));
   }
 };
 
@@ -30,11 +31,11 @@ const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json(messageClass(true, null, 'User not found'));
     }
-    res.json(user);
+    res.json(messageClass(false, user, 'User report successfuly created'));
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json(messageClass(true, null, err.message));
   }
 };
 
@@ -47,11 +48,11 @@ const updateUser = async (req, res) => {
       { new: true }
     );
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json(messageClass(true, null, 'User not found'));
     }
-    res.json(user);
+    res.json(messageClass(false, user, 'User successfuly updated'));
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json(messageClass(true, null, err.message));
   }
 };
 
@@ -59,11 +60,11 @@ const deleteUser = async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json(messageClass(true, null, 'User not found'));
     }
-    res.json({ message: 'User deleted' });
+    res.json(messageClass(false, null, 'User deleted'));
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json(messageClass(true, null, err.message));
   }
 };
 
