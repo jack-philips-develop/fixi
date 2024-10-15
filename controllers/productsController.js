@@ -1,5 +1,5 @@
 const Product = require('../models/product');
-const getNextSequenceValue = require('../utilities/database/counterFunction/getNextSequenceValue');
+const getNextSequenceValue = require('../utilities/database/counter/getNextSequenceValue');
 
 const createProduct = async (req, res) => {
     const id = await getNextSequenceValue('productId', 45692);

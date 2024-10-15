@@ -69,7 +69,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"firstName\": \"examxp3d4lfre5\",\r\n    \"lastName\": \"examp4xd3lfre3\",\r\n    \"phoneNumber\": \"+989922203951\"\r\n}",
+											"raw": "{\r\n    \"firstName\": \"ali\",\r\n    \"lastName\": \"ali\",\r\n    \"phoneNumber\": \"+989909203965\",\r\n    \"password\": \"MySecureP@ss123\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -148,6 +148,27 @@
 												"6703940f271bf39a59ac6761"
 											]
 										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "account",
+							"item": [
+								{
+									"name": "Sign In",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								},
+								{
+									"name": "Sign Up",
+									"request": {
+										"method": "GET",
+										"header": []
 									},
 									"response": []
 								}
